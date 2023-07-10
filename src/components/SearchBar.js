@@ -1,19 +1,33 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./searchbar.css";
-// import SearchIcon from "@material-ui/icons/Search";
-// import CloseIcon from "@material-ui/icons/Close";
-// import { PRODUCTS } from "../product";
+import { BsXLg } from "react-icons/bs";
+import { BsSearch } from "react-icons/bs";
 import { Product } from "../pages/shop/product";
+// import { AimOutlined } from "@ant-design/icons";
+
 
 function SearchBar({ placeholder, data }) {
   const [filteredData, setFilteredData] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
+  const [bookCount, setBookCount] = useState(0);
 
+  useEffect(() => {
+    setBookCount(filteredData.length);
+  });
+
+  const handleClick = (event) =>{
+    const word = event.target.value;
+    if(wordEntered.length !==0){
+      setWordEntered("");
+      setFilteredData([]);
+    }
+  }
+  
   const handleFilter = (event) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
     const newFilter = data.filter((value) => {
-      return value.productName.toLowerCase().includes(searchWord.toLowerCase());
+      return value.productName.toLowerCase().includes(searchWord.toLowerCase()) || value.author.toLowerCase().includes(searchWord.toLowerCase()) || value.date.toLowerCase().includes(searchWord.toLowerCase());
     });
     // setWordEntered(searchWord);
     // const newFilter1 = data.filter((value) => {
@@ -36,21 +50,24 @@ function SearchBar({ placeholder, data }) {
   return (
     <div className="search">
       <div className="searchInputs">
-        <input className="ip"
+        <a className="search"><BsSearch /></a><input className="ip"
           type="text"
           placeholder={placeholder}
           value={wordEntered}
           onChange={handleFilter}
-        />
+        /><a className="close" onClick={handleClick}><BsXLg /></a>
+            {/* <AiOutlineClose /> */}
         {/* <div className="searchIcon">
           {filteredData.length === 0 ? (
             <SearchIcon />
-          ) : (
-            <CloseIcon id="clearBtn" onClick={clearInput} />
-          )}
-        </div> */}
+            ) : (
+              <CloseIcon id="clearBtn" onClick={clearInput} />
+              )}
+            </div> */}
+        {/* <a><AiOutlineClose /></a> */}
       </div>
-      {filteredData.length !== 0 && (
+            <div className="book">Books Count: {bookCount}</div>
+      {/* {filteredData.length !== 0 && (
         <div className="dataResult">
           {filteredData.slice(0, 15).map((value, key) => {
             return (
@@ -62,15 +79,19 @@ function SearchBar({ placeholder, data }) {
             );
           })}
         </div>
-      )}
+      )} */}
+
       <div className="op">
         {/* <div className="contain"> */}
 
         {filteredData.map((product) => (
-          <Product data={product} />
-        ))}
+          // <a className="op-res"href={product.link}>
+          <Product data={product}/>
+          //  </a>
+          ))}
       </div>
       {/* </div> */}
+      {/* <AiOutlineClose /> */}
     </div>
   );
 }

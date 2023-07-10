@@ -1,0 +1,50 @@
+.cartItem {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .cartItem img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+  }
+  
+  .cartItem .description {
+    flex-grow: 1;
+  }
+  
+  .cartItem p {
+    margin: 5px 0;
+  }
+  
+  .cartItem .countHandler {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cartItem .countHandler button {
+    background-color: transparent;
+    border: none;
+    padding: 5px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .cartItem .countHandler input {
+    width: 40px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 10px;
+  }
+  
+  .cartItem .countHandler input:focus {
+    outline: none;
+    border-color: #888;
+  }
+  
+  h1 {
+    color: white;
+  }
+  

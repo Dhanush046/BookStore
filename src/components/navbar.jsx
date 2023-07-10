@@ -8,14 +8,15 @@ export const Navbar = ({ placeholder, data }) => {
   return (
     <div className="navbar">
       <p className="pa">
-        <Link to="/">BookStore</Link>
+        <Link to="/shop">BookStore</Link>
       </p>
       <div className="links">
         <Link to="/search">Search</Link>
         <Link to="/cart">
           Cart
         </Link>
-        <Link to="/"> Home </Link>
+        <Link to="/shop"> Home </Link>
+        <Link to="/"> LogOut </Link>
       </div>
     </div>
   );

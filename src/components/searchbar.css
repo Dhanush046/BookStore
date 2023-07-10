@@ -4,6 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background-color: red; */
+  width: 88;
 }
 
 .search input {
@@ -63,9 +65,9 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  background-color: lightgrey;
-}
+/* a:hover {
+  background-color: #0d1b2a;
+} */
 
 #clearBtn {
   cursor: pointer;
@@ -75,7 +77,9 @@ a:hover {
   /* display: flex; */
   display: grid;
   /* background-color: rebeccapurple; */
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 500px 500px 500px;
+  font-size: 20px;
+  /* padding: auto; */
 }
 
 * {
@@ -84,4 +88,36 @@ a:hover {
   box-sizing: border-box;
 }
 
+.search{
+  color: white;
+  margin-right: 20px;
+  font-size: 25px;
+}
 
+
+
+.data:hover{
+  background-color: #415a77 !important;
+}
+
+.op-res{
+  color: white;
+}
+
+.close{
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.book{
+  position: relative;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 1300px;
+  width: 12%;
+  /* background-color: white; */
+  /* color: black; */
+  bottom: 34px;
+}
